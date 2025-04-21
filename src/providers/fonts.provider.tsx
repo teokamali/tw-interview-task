@@ -1,11 +1,53 @@
 import type { BaseProps } from "@/types/global.types";
-import { Dancing_Script, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 
-const RobotoFont = Roboto({ weight: "400", subsets: ["latin"], variable: "--font-roboto" });
-const DancingFont = Dancing_Script({ weight: "400", subsets: ["latin"], variable: "--font-dancing" });
-
+const YekanBakhFont = localFont({
+   src: [
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Thin.woff",
+         weight: "100",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Light.woff",
+         weight: "300",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Regular.woff",
+         weight: "normal",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-SemiBold.woff",
+         weight: "600",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Bold.woff",
+         weight: "bold",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-ExtraBold.woff",
+         weight: "800",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Black.woff",
+         weight: "900",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-ExtraBlack.woff",
+         weight: "950",
+         style: "normal",
+      },
+   ],
+   variable: "--font-YekanBakh",
+});
 const FontsProvider: BaseProps = ({ children }) => {
-   return <div className={`${RobotoFont.variable} ${DancingFont.variable}`}>{children}</div>;
+   return <div className={`${YekanBakhFont.variable}`}>{children}</div>;
 };
 
 export default FontsProvider;

@@ -9,12 +9,12 @@ const config: Config = {
    theme: {
       extend: {
          fontFamily: {
-            roboto: ["var(--font-roboto)"],
-            dancing: ["var(--font-dancing)"],
+            YekanBakh: ["var(--font-YekanBakh)"],
          },
          colors: {
-            background: "var(--background)",
-            foreground: "var(--foreground)",
+            primary: "#FD4141",
+            "neutral-200": "#CBD2D9",
+            "neutral-400": "#7B8794",
          },
       },
    },
