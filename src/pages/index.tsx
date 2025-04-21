@@ -1,9 +1,14 @@
+import Link from "next/link";
+
 export default function Home() {
    return (
-      <div className="bg-black">
-         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis non enim dolorem eius, cupiditate
-         consequuntur amet, itaque quam in, molestiae optio mollitia. Quos dolor non tenetur harum obcaecati provident
-         odio.
+      <div className="min-h-screen">
+         <Link
+            href={"/series/hunnibal"}
+            className="text-neutral-300 hover:underline "
+         >
+            Navigate to Hunnibal Series Page
+         </Link>
       </div>
    );
 }
