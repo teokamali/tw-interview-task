@@ -11,6 +11,9 @@ export type AppPropsWithLayout = AppProps & {
 
 export type Nullable<T> = T | null;
 
-export type TIconComponent = FC<{ size: number; className?: string }>;
+export type TIconComponent = FC<{
+   size: number | [number, number];
+   className?: string;
+}>;
 
 export type IBaseComponentProps<T = {}> = FC<PropsWithChildren<T & { className?: string }>>;

@@ -1,10 +1,12 @@
 import { TIconComponent } from "@/types/global.types";
+import { getIconSize } from "@/utils/getIconSize.util";
 
 const ChevronRight: TIconComponent = ({ size }) => {
+   const { height, width } = getIconSize(size);
    return (
       <svg
-         width={size}
-         height={size}
+         width={width}
+         height={height}
          viewBox="0 0 24 24"
          fill="none"
          xmlns="http://www.w3.org/2000/svg"

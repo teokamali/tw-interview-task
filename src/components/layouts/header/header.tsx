@@ -31,7 +31,13 @@ const Header: IBaseComponentProps = ({ className }) => {
    ];
 
    return (
-      <header className={clsx("Header", "flex items-center justify-between", className)}>
+      <header
+         className={clsx(
+            "Header",
+            "flex items-center justify-between bg-[#10151AE5] border-b border-white/5",
+            className,
+         )}
+      >
          <nav className="flex items-center gap-4">
             <Logo
                size={48}
@@ -39,13 +45,17 @@ const Header: IBaseComponentProps = ({ className }) => {
             />
             <ul className="flex items-center gap-4">
                {navigation.map((link) => (
-                  <Link
+                  <li
                      key={link.slug}
-                     href={link.slug}
-                     className="text-white font-YekanBakh font-medium text-sm"
+                     className="px-2"
                   >
-                     {link.title}
-                  </Link>
+                     <Link
+                        href={link.slug}
+                        className="text-white font-YekanBakh font-medium text-sm"
+                     >
+                        {link.title}
+                     </Link>
+                  </li>
                ))}
             </ul>
          </nav>

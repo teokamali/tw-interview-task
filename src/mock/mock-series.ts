@@ -3,25 +3,26 @@ export type TSeries = {
    title_fa: string;
    title_en: string;
    cover: string;
+   mobileCover: string;
    logo: string;
    hasNBClogo: boolean;
    satisfaction_rate: number;
    IMDB_rating: number;
    duration: number; //in minutes
    release_year: number;
-   last_session_release_date: string;
+   last_session_release_year: number;
    isFinished: boolean;
-   country: string;
+   country: string[];
    total_sessions: number;
    total_episodes: number;
    persian_dub: boolean;
    age_restriction: string;
    tags: string[];
    description: string;
-   sessions: TSession[];
+   seasons: TSeason[];
 };
 
-export type TSession = {
+export type TSeason = {
    id: number;
    episodes: TEpisode[];
 };
@@ -33,7 +34,7 @@ export type TEpisode = {
    rate: number;
 };
 
-const mockSessions: TSession[] = [
+const mockSessions: TSeason[] = [
    {
       id: 1,
       episodes: [
@@ -76,24 +77,25 @@ const mockSessions: TSession[] = [
 
 export const mockSeries: TSeries = {
    id: 1,
-   title_fa: "سرگذشت ندیمه",
-   title_en: "The Handmaid's Tale",
+   title_fa: "هانیبال",
+   title_en: "Hannibal",
    cover: "/images/hannibal-cover.png",
+   mobileCover: "/images/hannibal-cover-mobile.png",
    logo: "/images/hannibal-logo.png",
    hasNBClogo: true,
    satisfaction_rate: 85,
    IMDB_rating: 8.4,
-   duration: 3600, // Total duration in minutes for all episodes
+   duration: 45,
    release_year: 2017,
-   last_session_release_date: "2023-12-15",
-   isFinished: false,
-   country: "USA",
+   last_session_release_year: 2020,
+   isFinished: true,
+   country: ["آمریکا"],
    total_sessions: 5,
    total_episodes: 50,
    persian_dub: true,
-   age_restriction: "18+",
-   tags: ["Drama", "Sci-Fi", "Thriller"],
-   sessions: mockSessions,
+   age_restriction: "مناسب برای بالای ۱۸ سال",
+   tags: ["روانشناسی", "وحشت", "علمی تخیلی", "دلهره‌آور"],
+   seasons: mockSessions,
    description:
-      "In a dystopian future, women are forced into servitude in a theocratic dictatorship. This is the story of one of them.",
+      "ویل گراهام ، یک متخصص جنایی FBI ، توانایی غیرقابل انکار و همدردی با دکتر هانیبال لکر ، روانپزشک پزشکی قانونی را دارد. با این حال ، او از این که آدمخوار است آگاهی ندارد و ویل گراهام",
 };

@@ -30,7 +30,7 @@ const YekanBakhFont = localFont({
       },
       {
          path: "../assets/fonts/woff/YekanBakhFaNum-Bold.woff",
-         weight: "bold",
+         weight: "700",
          style: "normal",
       },
       {
