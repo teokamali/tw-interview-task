@@ -11,6 +11,11 @@ const config: Config = {
          fontFamily: {
             YekanBakh: ["var(--font-YekanBakh)"],
          },
+         backgroundImage: {
+            "gradient-right":
+               "linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.5) 74.73%, rgba(0, 0, 0, 0) 100%)",
+            "gradient-bottom": "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 75.04%, #000000 100%)",
+         },
          colors: {
             primary: "#FD4141",
             "neutral-200": "#CBD2D9",

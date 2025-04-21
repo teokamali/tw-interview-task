@@ -1,10 +1,13 @@
 import type { TIconComponent } from "@/types/global.types";
+import { getIconSize } from "@/utils/getIconSize.util";
 
 const SearchIcon: TIconComponent = ({ size, className }) => {
+   const { height, width } = getIconSize(size);
+
    return (
       <svg
-         width={size}
-         height={size}
+         width={width}
+         height={height}
          viewBox="0 0 20 20"
          fill="none"
          xmlns="http://www.w3.org/2000/svg"
