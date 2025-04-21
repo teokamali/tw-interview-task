@@ -7,6 +7,7 @@ import IMDBIcon from "@/components/icons/imdb.icon";
 import LikeIconOutlined from "@/components/icons/like-outlined.icon";
 import LikeIcon from "@/components/icons/like.icon";
 import PlayIcon from "@/components/icons/play.icon";
+import { useMediaQuery } from "@/hooks/useMediaQuery.hook";
 import { IBaseComponentProps } from "@/types/global.types";
 import { calculateDuration } from "@/utils/calculateDuration";
 import clsx from "clsx";
@@ -22,20 +23,18 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
    description,
    duration,
    hasNBClogo,
-   id,
    isFinished,
    last_session_release_year,
    logo,
    persian_dub,
    release_year,
    satisfaction_rate,
-   sessions,
    tags,
    title_en,
    title_fa,
    total_episodes,
    total_sessions,
-   children,
+   mobileCover,
    className,
 }) => {
    const seriesDetail: {
@@ -75,42 +74,69 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
          title: age_restriction,
       },
    ];
+   const isMobile = useMediaQuery("md");
    return (
-      <div className={clsx("SeriesHero", "relative z-0", className)}>
+      <div className={clsx("SeriesHero", "h-full", className)}>
          {/* Cover */}
-         <Image
-            src={cover}
-            alt={title_en}
-            width={1440}
-            height={586}
-            className="w-full"
-         />
-         {/* Right Shadow */}
-         <div
-            className={clsx("RightShadow", "bg-gradient-right absolute top-0 right-0 w-full h-full max-w-[50%] z-10")}
-         />
-         {/* Bottom Shadow */}
-         <div className={clsx("BottomShadow", "bg-gradient-bottom absolute inset-0 z-10")} />
+         <div className="relative z-0">
+            {!isMobile ? (
+               <Image
+                  src={mobileCover}
+                  alt={title_en}
+                  width={360}
+                  height={216}
+                  className="w-full"
+               />
+            ) : (
+               <Image
+                  src={cover}
+                  alt={title_en}
+                  width={1440}
+                  height={586}
+                  className="w-full h-full md:max-h-[586px] aspect-video object-cover"
+               />
+            )}
+            {/* Right Shadow */}
+            <div
+               className={clsx(
+                  "RightShadow",
+                  "hidden md:block",
+                  "bg-gradient-right absolute top-0 right-0 w-full h-full max-w-[50%] z-10",
+               )}
+            />
+            {/* Bottom Shadow */}
+            <div className={clsx("BottomShadow", "bg-gradient-bottom absolute inset-0 z-10")} />
+         </div>
 
          <div
             className={clsx(
                "ContentWrapper",
-               "w-full flex items-center justify-center text-white z-50 absolute inset-0",
+               "w-full flex items-center justify-center text-white z-50 md:absolute md:inset-0",
             )}
          >
-            <div className={clsx("Content", "w-full h-full max-w-[1168px] flex-col items-center gap-10 py-20")}>
+            <div
+               className={clsx(
+                  "Content",
+                  "w-full h-full max-w-[1168px] flex-col items-center gap-10 md:py-20 px-4 xl:px-0",
+               )}
+            >
                <Image
                   src={logo}
                   alt={title_en}
                   width={400}
                   height={150}
-                  className="pb-10"
+                  className="pb-10 hidden md:block"
                />
                <div className={clsx("HeroDetail", "w-full flex flex-col pb-8")}>
-                  <h1 className={clsx("HeroTitle", "text-white font-bold text-xl leading-[28px] text-right pb-2")}>
+                  <h1
+                     className={clsx(
+                        "HeroTitle",
+                        "text-white font-bold text-xl leading-[28px] text-center md:text-right pb-2",
+                     )}
+                  >
                      {title_fa} | {title_en}
                   </h1>
-                  <ul className="text-neutral-200 flex items-center gap-3 pb-2">
+                  <ul className="text-neutral-200 flex items-center justify-center md:justify-start flex-wrap md:flex-nowrap gap-x-3 gap-y-1.5 pb-2">
                      {seriesDetail.map((detail, index) => {
                         return (
                            <>
@@ -132,7 +158,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                         );
                      })}
                   </ul>
-                  <ul className="flex items-center gap-1">
+                  <ul className="flex items-center gap-1  ">
                      {tags.map((tag) => {
                         return (
                            <li
@@ -145,12 +171,13 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                      })}
                   </ul>
                </div>
-               <div className={clsx("HeroActions", "w-full flex flex-col gap-4")}>
+               <div className={clsx("HeroActions", "w-full flex flex-col gap-6 md:gap-4  ")}>
                   {/* Actions */}
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center justify-center md:justify-start flex-wrap md:flex-nowrap gap-6">
                      <Button
                         variant={"contained"}
                         color={"primary"}
+                        className="flex-grow md:flex-grow-0 w-full md:w-fit"
                      >
                         <PlayIcon size={24} />
                         <span className="text-base font-medium">پخش</span>
@@ -202,7 +229,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                            alt="NPC Logo"
                            width={85}
                            height={30}
-                           className="mt-2"
+                           className="mt-2 hidden md:block"
                         />
                      ) : (
                         <></>

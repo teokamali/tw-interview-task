@@ -3,6 +3,7 @@ export type TSeries = {
    title_fa: string;
    title_en: string;
    cover: string;
+   mobileCover: string;
    logo: string;
    hasNBClogo: boolean;
    satisfaction_rate: number;
@@ -18,10 +19,10 @@ export type TSeries = {
    age_restriction: string;
    tags: string[];
    description: string;
-   sessions: TSession[];
+   seasons: TSeason[];
 };
 
-export type TSession = {
+export type TSeason = {
    id: number;
    episodes: TEpisode[];
 };
@@ -33,7 +34,7 @@ export type TEpisode = {
    rate: number;
 };
 
-const mockSessions: TSession[] = [
+const mockSessions: TSeason[] = [
    {
       id: 1,
       episodes: [
@@ -79,6 +80,7 @@ export const mockSeries: TSeries = {
    title_fa: "هانیبال",
    title_en: "Hannibal",
    cover: "/images/hannibal-cover.png",
+   mobileCover: "/images/hannibal-cover-mobile.png",
    logo: "/images/hannibal-logo.png",
    hasNBClogo: true,
    satisfaction_rate: 85,
@@ -93,7 +95,7 @@ export const mockSeries: TSeries = {
    persian_dub: true,
    age_restriction: "مناسب برای بالای ۱۸ سال",
    tags: ["روانشناسی", "وحشت", "علمی تخیلی", "دلهره‌آور"],
-   sessions: mockSessions,
+   seasons: mockSessions,
    description:
       "ویل گراهام ، یک متخصص جنایی FBI ، توانایی غیرقابل انکار و همدردی با دکتر هانیبال لکر ، روانپزشک پزشکی قانونی را دارد. با این حال ، او از این که آدمخوار است آگاهی ندارد و ویل گراهام",
 };

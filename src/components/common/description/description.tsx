@@ -1,4 +1,5 @@
 import { IBaseComponentProps } from "@/types/global.types";
+import clsx from "clsx";
 import { useState } from "react";
 import Button from "../button/button";
 import { IDescriptionProps } from "./description.types";
@@ -25,7 +26,7 @@ const Description: IBaseComponentProps<IDescriptionProps> = ({
             <Button
                onClick={toggleCollapse}
                variant={"text"}
-               className="!inline text-base font-bold"
+               className={clsx("!inline text-base font-bold", !collapsed ? "!pr-1" : "")}
             >
                {collapsed ? "نمایش بیشتر" : "نمایش کمتر"}
             </Button>
