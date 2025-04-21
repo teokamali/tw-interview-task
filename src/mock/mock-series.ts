@@ -32,6 +32,7 @@ export type TEpisode = {
    duration: number; //in minutes
    title: string;
    rate: number;
+   total_views: number;
 };
 
 const mockSessions: TSeason[] = [
@@ -42,14 +43,48 @@ const mockSessions: TSeason[] = [
             id: 1,
             cover: "/images/ep-1.png",
             duration: 60,
-            title: "Offred",
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 41831,
             rate: 56,
          },
          {
             id: 2,
             cover: "/images/ep-2.png",
             duration: 55,
-            title: "Birth Day",
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
+            rate: 56,
+         },
+         {
+            id: 3,
+            cover: "/images/ep-3.png",
+            duration: 60,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 12000,
+            rate: 56,
+         },
+         {
+            id: 4,
+            cover: "/images/ep-4.png",
+            duration: 55,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
+            rate: 56,
+         },
+         {
+            id: 5,
+            cover: "/images/ep-1.png",
+            duration: 60,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
+            rate: 56,
+         },
+         {
+            id: 6,
+            cover: "/images/ep-3.png",
+            duration: 55,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
             rate: 56,
          },
       ],
@@ -58,18 +93,36 @@ const mockSessions: TSeason[] = [
       id: 2,
       episodes: [
          {
-            id: 3,
+            id: 7,
             cover: "/images/ep-1.png",
             duration: 50,
-            title: "Late",
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
             rate: 56,
          },
          {
-            id: 4,
-            cover: "/images/ep-3.png",
+            id: 8,
+            cover: "/images/ep-4.png",
             duration: 53,
-            title: "Nolite Te Bastardes Carborundorum",
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 4183131,
             rate: 56,
+         },
+         {
+            id: 9,
+            cover: "/images/ep-2.png",
+            duration: 75,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 5000000,
+            rate: 56,
+         },
+         {
+            id: 10,
+            cover: "/images/ep-1.png",
+            duration: 53,
+            title: "مرد آهنی: انتقام برای آزادی",
+            total_views: 213,
+            rate: 86,
          },
       ],
    },
