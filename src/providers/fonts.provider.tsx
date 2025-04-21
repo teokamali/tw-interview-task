@@ -1,4 +1,4 @@
-import type { BaseProps } from "@/types/global.types";
+import type { IBaseComponentProps } from "@/types/global.types";
 import localFont from "next/font/local";
 
 const YekanBakhFont = localFont({
@@ -16,6 +16,11 @@ const YekanBakhFont = localFont({
       {
          path: "../assets/fonts/woff/YekanBakhFaNum-Regular.woff",
          weight: "normal",
+         style: "normal",
+      },
+      {
+         path: "../assets/fonts/woff/YekanBakhFaNum-Regular.woff",
+         weight: "500",
          style: "normal",
       },
       {
@@ -46,7 +51,7 @@ const YekanBakhFont = localFont({
    ],
    variable: "--font-YekanBakh",
 });
-const FontsProvider: BaseProps = ({ children }) => {
+const FontsProvider: IBaseComponentProps = ({ children }) => {
    return <div className={`${YekanBakhFont.variable}`}>{children}</div>;
 };
 

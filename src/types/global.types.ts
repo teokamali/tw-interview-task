@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import type { PropsWithChildren, ReactElement, ReactNode } from "react";
-
-export type BaseProps<T = {}> = React.FC<PropsWithChildren<T>>;
+import type { FC, PropsWithChildren, ReactElement, ReactNode } from "react";
 
 type NextPageWithLayout = NextPage & {
    layout?: (page: ReactElement) => ReactNode;
@@ -12,3 +10,7 @@ export type AppPropsWithLayout = AppProps & {
 };
 
 export type Nullable<T> = T | null;
+
+export type TIconComponent = FC<{ size: number; className?: string }>;
+
+export type IBaseComponentProps<T = {}> = FC<PropsWithChildren<T & { className?: string }>>;
