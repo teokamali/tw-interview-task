@@ -21,9 +21,10 @@ const EpisodeCard: IBaseComponentProps<IEpisodeCardProps> = ({
 }) => {
    const { query } = useRouter();
    const { id: seriesID } = query;
+   const episodeLink: string = `${seriesID}/episode/${id}`;
    return (
-      <Link href={`${seriesID}/episode/${id}`}>
-         <div className={clsx("EpisodeCard", "relative group")}>
+      <div className={clsx("EpisodeCard", "relative group")}>
+         <Link href={episodeLink}>
             <div className={clsx("EpCoverImage", "pb-2.5 relative")}>
                <Image
                   src={cover}
@@ -40,10 +41,13 @@ const EpisodeCard: IBaseComponentProps<IEpisodeCardProps> = ({
                   />
                </div>
                <div className="bg-[#10151AE5] px-1 absolute left-0.5 bottom-3 rounded-[1px] w-10 h-4 flex items-center justify-center">
-                  <span className="text-[11.24px] font-medium text-white text-center leading-4">1:12:35</span>
+                  <span className="text-[11.24px] font-medium text-white text-center leading-4">{duration}</span>
                </div>
             </div>
-            <div className={clsx("EpContent", "")}>
+         </Link>
+
+         <div className={clsx("EpContent", "")}>
+            <Link href={episodeLink}>
                <div className={clsx("ContentHeader", "w-full flex items-center justify-between")}>
                   <h3 className="text-neutral-200 transition-colors duration-200 group-hover:text-white group-hover:pr-4 font-medium text-xs leading-5 text-right">
                      {title}
@@ -53,24 +57,24 @@ const EpisodeCard: IBaseComponentProps<IEpisodeCardProps> = ({
                      <span className="font-medium text-xs leading-5">{rate}%</span>
                   </div>
                </div>
+            </Link>
 
-               <Link
-                  href={`${seriesID}`}
-                  className="text-[11.24px] font-medium text-neutral-400 hover:text-white group-hover:pr-4 text-right align-middle leading-4"
-               >
-                  {seriesName}
-               </Link>
-               <ul className="flex items-center gap-[9px]">
-                  <li className="text-[11.24px] font-medium text-neutral-400 text-right align-middle leading-4">
-                     فصل {episode_season_number} قسمت {ep_number}
-                  </li>
-                  <li className="text-[11.24px] font-medium relative text-neutral-400 text-right align-middle leading-4 before:w-[1px] before:h-[1px] before:bg-neutral-400 before:rounded-full before:absolute before:-right-1 before:top-1/2 before:-translate-y-1/2">
-                     {calculateViews(total_views)} بازدید
-                  </li>
-               </ul>
-            </div>
+            <Link
+               href={`${seriesID}`}
+               className="text-[11.24px] font-medium text-neutral-400 hover:text-white group-hover:pr-4 text-right align-middle leading-4"
+            >
+               {seriesName}
+            </Link>
+            <ul className="flex items-center gap-[9px]">
+               <li className="text-[11.24px] font-medium text-neutral-400 text-right align-middle leading-4">
+                  فصل {episode_season_number} قسمت {ep_number}
+               </li>
+               <li className="text-[11.24px] font-medium relative text-neutral-400 text-right align-middle leading-4 before:w-[1px] before:h-[1px] before:bg-neutral-400 before:rounded-full before:absolute before:-right-1 before:top-1/2 before:-translate-y-1/2">
+                  {calculateViews(total_views)} بازدید
+               </li>
+            </ul>
          </div>
-      </Link>
+      </div>
    );
 };
 

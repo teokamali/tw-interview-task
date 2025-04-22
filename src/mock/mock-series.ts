@@ -29,7 +29,7 @@ export type TSeason = {
 export type TEpisode = {
    id: number;
    cover: string;
-   duration: number; //in minutes
+   duration: string; //in minutes
    title: string;
    rate: number;
    total_views: number;
@@ -42,7 +42,7 @@ const mockSessions: TSeason[] = [
          {
             id: 1,
             cover: "/images/ep-1.png",
-            duration: 60,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 41831,
             rate: 56,
@@ -50,7 +50,7 @@ const mockSessions: TSeason[] = [
          {
             id: 2,
             cover: "/images/ep-2.png",
-            duration: 55,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -58,7 +58,7 @@ const mockSessions: TSeason[] = [
          {
             id: 3,
             cover: "/images/ep-3.png",
-            duration: 60,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 12000,
             rate: 56,
@@ -66,7 +66,7 @@ const mockSessions: TSeason[] = [
          {
             id: 4,
             cover: "/images/ep-4.png",
-            duration: 55,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -74,7 +74,7 @@ const mockSessions: TSeason[] = [
          {
             id: 5,
             cover: "/images/ep-1.png",
-            duration: 60,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -82,7 +82,7 @@ const mockSessions: TSeason[] = [
          {
             id: 6,
             cover: "/images/ep-3.png",
-            duration: 55,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -95,7 +95,7 @@ const mockSessions: TSeason[] = [
          {
             id: 7,
             cover: "/images/ep-1.png",
-            duration: 50,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -103,7 +103,7 @@ const mockSessions: TSeason[] = [
          {
             id: 8,
             cover: "/images/ep-4.png",
-            duration: 53,
+            duration: "1:35:44",
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 4183131,
             rate: 56,
@@ -111,7 +111,8 @@ const mockSessions: TSeason[] = [
          {
             id: 9,
             cover: "/images/ep-2.png",
-            duration: 75,
+            duration: "1:35:44",
+
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 5000000,
             rate: 56,
@@ -119,7 +120,8 @@ const mockSessions: TSeason[] = [
          {
             id: 10,
             cover: "/images/ep-1.png",
-            duration: 53,
+            duration: "1:35:44",
+
             title: "مرد آهنی: انتقام برای آزادی",
             total_views: 213,
             rate: 86,

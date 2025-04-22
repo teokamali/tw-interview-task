@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/common/tabs/tabs";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { ISeriesSeasonsListProps } from "./seriesSeasonsList.types";
 
 import EpisodeCard from "@/components/common/cards/episodeCard/episodeCard";
@@ -11,7 +11,7 @@ const SeriesSeasonsList: FC<ISeriesSeasonsListProps> = ({ seasons, seriesTitle }
          className="mt-5"
          dir="rtl"
       >
-         <TabsList className="">
+         <TabsList>
             {seasons.map((season, index) => {
                return (
                   <TabsTrigger
@@ -51,4 +51,4 @@ const SeriesSeasonsList: FC<ISeriesSeasonsListProps> = ({ seasons, seriesTitle }
    );
 };
 
-export default SeriesSeasonsList;
+export default memo(SeriesSeasonsList);
