@@ -17,7 +17,7 @@ const buttonVariants = cva(
          color: {
             primary: "!bg-primary text-white border-primary ",
             secondary: "text-secondary border-secondary",
-            white: "border-neutral-400",
+            white: "border-neutral-400 text-white",
          },
       },
       defaultVariants: {
