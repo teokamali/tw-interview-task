@@ -81,7 +81,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                width={360}
                height={216}
                loading="lazy"
-               className="w-full hidden md:block"
+               className="w-full md:hidden block"
             />
 
             <Image
@@ -90,7 +90,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                width={1440}
                height={586}
                loading="lazy"
-               className="w-full h-full md:max-h-[586px] aspect-video object-cover block md:hidden"
+               className="w-full h-full md:max-h-[586px] aspect-video object-cover md:block hidden"
             />
 
             {/* Right Shadow */}
