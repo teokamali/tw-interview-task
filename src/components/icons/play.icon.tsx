@@ -1,6 +1,6 @@
 import { TIconComponent } from "@/types/global.types";
 import { getIconSize } from "@/utils/getIconSize.util";
-const PlayIcon: TIconComponent = ({ size }) => {
+const PlayIcon: TIconComponent = ({ size, className }) => {
    const { height, width } = getIconSize(size);
    return (
       <svg
@@ -9,6 +9,7 @@ const PlayIcon: TIconComponent = ({ size }) => {
          viewBox="0 0 24 24"
          fill="none"
          xmlns="http://www.w3.org/2000/svg"
+         className={className}
       >
          <path
             fillRule="evenodd"

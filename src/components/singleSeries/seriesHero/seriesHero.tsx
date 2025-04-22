@@ -12,8 +12,7 @@ import { IBaseComponentProps } from "@/types/global.types";
 import { calculateDuration } from "@/utils/calculateDuration";
 import clsx from "clsx";
 import Image from "next/image";
-import { ReactElement } from "react";
-import { ISeriesHeroProps } from "./seriesHero.types";
+import { ISeriesDetail, ISeriesHeroProps } from "./seriesHero.types";
 
 const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
    IMDB_rating,
@@ -37,10 +36,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
    mobileCover,
    className,
 }) => {
-   const seriesDetail: {
-      icon: ReactElement | null;
-      title: string | number | null;
-   }[] = [
+   const seriesDetail: ISeriesDetail[] = [
       {
          icon: <LikeIcon size={20} />,
          title: `${satisfaction_rate}%`,
@@ -74,9 +70,11 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
          title: age_restriction,
       },
    ];
+
    const isMobile = useMediaQuery("md");
+
    return (
-      <div className={clsx("SeriesHero", "h-full", className)}>
+      <div className={clsx("SeriesHero", "h-full relative", className)}>
          {/* Cover */}
          <div className="relative z-0">
             {!isMobile ? (
@@ -85,6 +83,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   alt={title_en}
                   width={360}
                   height={216}
+                  loading="lazy"
                   className="w-full"
                />
             ) : (
@@ -93,6 +92,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   alt={title_en}
                   width={1440}
                   height={586}
+                  loading="lazy"
                   className="w-full h-full md:max-h-[586px] aspect-video object-cover"
                />
             )}
@@ -107,24 +107,20 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
             {/* Bottom Shadow */}
             <div className={clsx("BottomShadow", "bg-gradient-bottom absolute inset-0 z-10")} />
          </div>
-
+         {/* Content */}
          <div
             className={clsx(
                "ContentWrapper",
                "w-full flex items-center justify-center text-white z-50 md:absolute md:inset-0",
             )}
          >
-            <div
-               className={clsx(
-                  "Content",
-                  "w-full h-full max-w-[1168px] flex-col items-center gap-10 md:py-20 px-4 xl:px-0",
-               )}
-            >
+            <div className={clsx("Content", "w-full  max-w-[1168px] flex-col items-center gap-10 px-4 xl:px-0")}>
                <Image
                   src={logo}
                   alt={title_en}
                   width={400}
                   height={150}
+                  loading="lazy"
                   className="pb-10 hidden md:block"
                />
                <div className={clsx("HeroDetail", "w-full flex flex-col pb-8")}>
@@ -177,7 +173,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                      <Button
                         variant={"contained"}
                         color={"primary"}
-                        className="flex-grow md:flex-grow-0 w-full md:w-fit"
+                        className="flex items-center gap-2 flex-grow md:flex-grow-0 w-full md:w-fit"
                      >
                         <PlayIcon size={24} />
                         <span className="text-base font-medium">پخش</span>

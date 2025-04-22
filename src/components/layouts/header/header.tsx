@@ -38,20 +38,20 @@ const Header: IBaseComponentProps = ({ className }) => {
             className,
          )}
       >
-         <nav className="flex items-center gap-4">
+         <nav className="flex items-stretch gap-4">
             <Logo
                size={48}
                type="brand"
             />
-            <ul className="flex items-center gap-4">
+            <ul className="flex items-center gap-4 ">
                {navigation.map((link) => (
                   <li
                      key={link.slug}
-                     className="px-2"
+                     className="px-2 h-full relative before:transition-all before:duration-200 before:absolute before:left-0 before:right-0 before:bottom-0 before:z-10 before:w-full before:h-[1px] before:scale-x-0 before:bg-white hover:before:scale-x-100 origin-center "
                   >
                      <Link
                         href={link.slug}
-                        className="text-white font-YekanBakh font-medium text-sm"
+                        className="h-full flex items-center justify-center  text-white font-YekanBakh font-medium text-sm "
                      >
                         {link.title}
                      </Link>
@@ -59,14 +59,17 @@ const Header: IBaseComponentProps = ({ className }) => {
                ))}
             </ul>
          </nav>
-         <div className="flex items-center gap-4 text-neutral-400 pl-4">
-            <Button variant={"icon"}>
+         <div className="flex items-center text-neutral-400  pl-4">
+            <Button
+               variant={"icon"}
+               className="hover:text-white"
+            >
                <SearchIcon size={18} />
             </Button>
 
             <Button
                variant={"ghost"}
-               className="text-neutral-200 font-medium text-sm"
+               className="text-neutral-200 hover:text-white font-medium text-sm"
             >
                ورود / ثبت نام
             </Button>

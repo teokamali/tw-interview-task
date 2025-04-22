@@ -19,7 +19,7 @@ const YekanBakhFont = localFont({
          style: "normal",
       },
       {
-         path: "../assets/fonts/woff/YekanBakhFaNum-Regular.woff",
+         path: "../assets/fonts/woff/YekanBakhFaNum-Medium.woff",
          weight: "500",
          style: "normal",
       },
