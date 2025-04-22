@@ -7,11 +7,11 @@ import IMDBIcon from "@/components/icons/imdb.icon";
 import LikeIconOutlined from "@/components/icons/like-outlined.icon";
 import LikeIcon from "@/components/icons/like.icon";
 import PlayIcon from "@/components/icons/play.icon";
-import { useMediaQuery } from "@/hooks/useMediaQuery.hook";
 import { IBaseComponentProps } from "@/types/global.types";
 import { calculateDuration } from "@/utils/calculateDuration";
 import clsx from "clsx";
 import Image from "next/image";
+import { Fragment, memo } from "react";
 import { ISeriesDetail, ISeriesHeroProps } from "./seriesHero.types";
 
 const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
@@ -71,31 +71,28 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
       },
    ];
 
-   const isMobile = useMediaQuery("md");
-
    return (
       <div className={clsx("SeriesHero", "h-full relative", className)}>
          {/* Cover */}
          <div className="relative z-0">
-            {!isMobile ? (
-               <Image
-                  src={mobileCover}
-                  alt={title_en}
-                  width={360}
-                  height={216}
-                  loading="lazy"
-                  className="w-full"
-               />
-            ) : (
-               <Image
-                  src={cover}
-                  alt={title_en}
-                  width={1440}
-                  height={586}
-                  loading="lazy"
-                  className="w-full h-full md:max-h-[586px] aspect-video object-cover"
-               />
-            )}
+            <Image
+               src={mobileCover}
+               alt={title_en}
+               width={360}
+               height={216}
+               loading="lazy"
+               className="w-full hidden md:block"
+            />
+
+            <Image
+               src={cover}
+               alt={title_en}
+               width={1440}
+               height={586}
+               loading="lazy"
+               className="w-full h-full md:max-h-[586px] aspect-video object-cover block md:hidden"
+            />
+
             {/* Right Shadow */}
             <div
                className={clsx(
@@ -135,7 +132,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   <ul className="text-neutral-200 flex items-center justify-center md:justify-start flex-wrap md:flex-nowrap gap-x-3 gap-y-1.5 pb-2">
                      {seriesDetail.map((detail, index) => {
                         return (
-                           <>
+                           <Fragment key={detail.title}>
                               {detail.icon || detail.title ? (
                                  <li
                                     className={clsx(
@@ -150,7 +147,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                                     <span className="font-medium text-xs leading-5">{detail.title}</span>
                                  </li>
                               ) : null}
-                           </>
+                           </Fragment>
                         );
                      })}
                   </ul>
@@ -238,4 +235,4 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
    );
 };
 
-export default SeriesHero;
+export default memo(SeriesHero);
