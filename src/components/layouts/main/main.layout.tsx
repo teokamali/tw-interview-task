@@ -10,7 +10,6 @@ const MainLayout: IBaseComponentProps = ({ children }) => {
       <div className="font-YekanBakh bg-black">
          {isSm ? <Header /> : <> </>}
          {isXs ? <MobileHeader /> : <> </>}
-
          {children}
       </div>
    );

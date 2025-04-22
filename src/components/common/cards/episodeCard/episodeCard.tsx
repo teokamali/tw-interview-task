@@ -30,7 +30,8 @@ const EpisodeCard: IBaseComponentProps<IEpisodeCardProps> = ({
                   alt={title}
                   width={280}
                   height={158}
-                  className="w-full h-full border border-white/10 rounded-sm"
+                  className="w-full h-full border border-white/10 rounded-sm object-cover"
+                  loading="lazy"
                />
                <div className="w-12 h-12 transition-opacity duration-200 opacity-0 text-white/90 bg-black/20 tran group-hover:opacity-100 flex items-center justify-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                   <PlayIcon
@@ -38,19 +39,27 @@ const EpisodeCard: IBaseComponentProps<IEpisodeCardProps> = ({
                      className=" rounded-full"
                   />
                </div>
+               <div className="bg-[#10151AE5] px-1 absolute left-0.5 bottom-3 rounded-[1px] w-10 h-4 flex items-center justify-center">
+                  <span className="text-[11.24px] font-medium text-white text-center leading-4">1:12:35</span>
+               </div>
             </div>
             <div className={clsx("EpContent", "")}>
                <div className={clsx("ContentHeader", "w-full flex items-center justify-between")}>
-                  <h3 className="text-neutral-200 font-medium text-xs leading-5 text-right">{title}</h3>
-                  <div className="flex items-center gap-0.5 text-neutral-400">
+                  <h3 className="text-neutral-200 transition-colors duration-200 group-hover:text-white group-hover:pr-4 font-medium text-xs leading-5 text-right">
+                     {title}
+                  </h3>
+                  <div className="flex items-center gap-0.5 text-neutral-400 group-hover:opacity-0">
                      <LikeIcon size={20} />
                      <span className="font-medium text-xs leading-5">{rate}%</span>
                   </div>
                </div>
 
-               <h4 className="text-[11.24px] font-medium text-neutral-400 text-right align-middle leading-4">
+               <Link
+                  href={`${seriesID}`}
+                  className="text-[11.24px] font-medium text-neutral-400 hover:text-white group-hover:pr-4 text-right align-middle leading-4"
+               >
                   {seriesName}
-               </h4>
+               </Link>
                <ul className="flex items-center gap-[9px]">
                   <li className="text-[11.24px] font-medium text-neutral-400 text-right align-middle leading-4">
                      فصل {episode_season_number} قسمت {ep_number}

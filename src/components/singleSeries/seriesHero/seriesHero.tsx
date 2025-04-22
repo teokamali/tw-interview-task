@@ -83,6 +83,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   alt={title_en}
                   width={360}
                   height={216}
+                  loading="lazy"
                   className="w-full"
                />
             ) : (
@@ -91,6 +92,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   alt={title_en}
                   width={1440}
                   height={586}
+                  loading="lazy"
                   className="w-full h-full md:max-h-[586px] aspect-video object-cover"
                />
             )}
@@ -118,6 +120,7 @@ const SeriesHero: IBaseComponentProps<ISeriesHeroProps> = ({
                   alt={title_en}
                   width={400}
                   height={150}
+                  loading="lazy"
                   className="pb-10 hidden md:block"
                />
                <div className={clsx("HeroDetail", "w-full flex flex-col pb-8")}>
